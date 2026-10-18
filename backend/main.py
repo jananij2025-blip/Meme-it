@@ -296,7 +296,8 @@ app.add_middleware(
 allow_origins=[
     "http://localhost:5173",
     "http://localhost:5174",
-    "https://meme-it.vercel.app",
+    "https://meme-it-beta.vercel.app",
+    "https://meme-jl0tvagdc-janani-7253.vercel.app",
 ],
 
 
