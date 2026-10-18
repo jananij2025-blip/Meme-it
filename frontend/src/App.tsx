@@ -9,7 +9,6 @@ import JSZip from "jszip";
 import ThemeRecommendations from "./ThemeRecommendations";
 import {
   getUserId,
-  registerAnonymousUser,
 
   recordMemeFeedback,
 } from "./recommendations";
