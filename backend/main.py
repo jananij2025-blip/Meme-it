@@ -293,24 +293,11 @@ app.add_middleware(
 
 
 
-    allow_origins=[
-
-
-
-        f"http://{host}:{port}"
-
-
-
-        for host in ("localhost", "127.0.0.1")
-
-
-
-        for port in (5173, 5174)
-
-
-
-    ],
-
+allow_origins=[
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://meme-it.vercel.app",
+],
 
 
     allow_credentials=False,
