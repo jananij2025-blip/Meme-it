@@ -966,14 +966,8 @@ def save_cached_result(key, result):
 # IMAGE HANDLING
 # ============================================================
 @lru_cache(maxsize=1)
-
-
-
 def get_removal_session():
-
-
-
-    return new_session("isnet-general-use")
+    return new_session("u2netp")
 
 
 
