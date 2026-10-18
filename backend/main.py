@@ -233,7 +233,7 @@ DB_PATH = BASE_DIR / "caption_cache.sqlite3"
 
 
 # Changing this separates new results from old cache entries.
-PROMPT_VERSION = "fresh-memes-v6"
+PROMPT_VERSION = "photo-first-v7"
 
 
 
@@ -2002,35 +2002,53 @@ Use varied formats such as:
 
 
 
-Every caption must match the selected theme.
 
+Every caption must match BOTH the uploaded photo
+and the selected theme.
 
+PHOTO-FIRST RULE (VERY IMPORTANT):
+Before writing captions, identify the most obvious
+visible facial expressions, body language, poses,
+and interactions in the uploaded photo.
 
+Use those visual details as the foundation
+of every joke.
 
+The selected theme provides the situation or
+context, but the person's visible reaction must
+make sense as the punchline.
 
+For example:
+- Screaming face: shock, panic, outrage, excitement.
+- Crying face: sadness, dramatic disappointment.
+- Laughing face: uncontrollable amusement.
+- Confused face: disbelief, misunderstanding.
+- Blank stare: awkward silence, disbelief, exhaustion.
 
+These are examples only. Always analyze the
+actual uploaded photo.
+
+If the selected theme is a fictional universe,
+use recognizable situations from that universe,
+but make the visible reaction essential to the joke.
+
+Avoid random character references, complicated
+lore, or jokes that would work equally well
+with an unrelated photo.
+
+Prefer short, punchy, relatable captions.
+Use natural meme language.
 
 Do not produce generic image descriptions.
-
-
-
-
-
-
-
 Do not make every caption begin with "Me when".
 
+FINAL SELF-CHECK:
+For each caption, ask:
+"Does this joke make sense with the person's
+actual expression or pose?"
 
+If not, rewrite it before returning the JSON.
 
-
-
-
-
-Use the actual expressions and interactions
-
-
-
-in the uploaded image to inspire the humour.
 
 
 
