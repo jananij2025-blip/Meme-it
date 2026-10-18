@@ -30,7 +30,7 @@ import threading
 
 
 
-from functools import lru_cache
+
 
 
 
@@ -76,7 +76,7 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 
 
 
-from rembg import new_session, remove
+
 
 
 
@@ -965,9 +965,7 @@ def save_cached_result(key, result):
 # ============================================================
 # IMAGE HANDLING
 # ============================================================
-@lru_cache(maxsize=1)
-def get_removal_session():
-    return new_session("u2netp")
+
 
 
 
@@ -3468,145 +3466,7 @@ async def prepare_image(
 # ============================================================
 # BACKGROUND REMOVAL
 # ============================================================
-@app.post("/api/remove-background")
 
-
-
-async def remove_background(
-
-
-
-    file: UploadFile = File(...)
-
-
-
-):
-
-
-
-    image = await load_image(file)
-
-
-
-
-
-
-
-
-
-
-
-
-
-    try:
-
-
-
-        buffer = BytesIO()
-
-
-
-        image.save(buffer, format="PNG")
-
-
-
-
-
-
-
-        result_bytes = remove(
-
-
-
-            buffer.getvalue(),
-
-
-
-            session=get_removal_session(),
-
-
-
-            alpha_matting=False,
-
-
-
-        )
-
-
-
-
-
-
-
-        with Image.open(
-
-
-
-            BytesIO(result_bytes)
-
-
-
-        ) as result:
-
-
-
-            cutout = result.convert("RGBA").copy()
-
-
-
-
-
-
-
-        return png_response(cutout)
-
-
-
-
-
-
-
-    except Exception as error:
-
-
-
-        print(
-
-
-
-            "Background removal failed:",
-
-
-
-            type(error).__name__,
-
-
-
-            flush=True,
-
-
-
-        )
-
-
-
-
-
-
-
-        raise HTTPException(
-
-
-
-            status_code=500,
-
-
-
-            detail="Could not remove the background.",
-
-
-
-        )
 
 
 
