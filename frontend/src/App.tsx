@@ -1,4 +1,4 @@
-
+import { removeBackground } from "@imgly/background-removal";
 import {
   useEffect,
   useRef,
@@ -378,50 +378,33 @@ async function generateMemes() {
     }
   }
 }
-  async function getCutout(file: File): Promise<string> {
-    if (cutoutCache.current) return cutoutCache.current;
-    if (cutoutPromise.current) return cutoutPromise.current;
-    const pending = (async () => {
-      const formData = new FormData();
-      formData.append("file", file);
-      const response = await fetch(
-        `${API_URL}/api/remove-background`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-      if (!response.ok) {
-        let message = "Could not prepare the photo.";
-        try {
-          const data = await response.json();
-          if (typeof data.detail === "string") {
-            message = data.detail;
-          }
-        } catch {
-          // Use the default error.
-        }
-        throw new Error(message);
-      }
-      const blob = await response.blob();
-      if (!blob.type.startsWith("image/")) {
-        throw new Error("The server did not return an image.");
-      }
-      const url = URL.createObjectURL(blob);
-      if (originalFile === file) {
-        cutoutCache.current = url;
-      }
-      return url;
-    })();
-    cutoutPromise.current = pending;
-    try {
-      return await pending;
-    } finally {
-      if (cutoutPromise.current === pending) {
-        cutoutPromise.current = null;
-      }
+  
+async function getCutout(file: File): Promise<string> {
+  if (cutoutCache.current) return cutoutCache.current;
+  if (cutoutPromise.current) return cutoutPromise.current;
+
+  const pending = (async () => {
+    const blob = await removeBackground(file);
+    const url = URL.createObjectURL(blob);
+
+    if (originalFile === file) {
+      cutoutCache.current = url;
+    }
+
+    return url;
+  })();
+
+  cutoutPromise.current = pending;
+
+  try {
+    return await pending;
+  } finally {
+    if (cutoutPromise.current === pending) {
+      cutoutPromise.current = null;
     }
   }
+}
+
   async function createMemeSticker() {
     if (!originalFile || !caption.trim() || busy) return;
     if (
