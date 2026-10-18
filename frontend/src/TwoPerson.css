@@ -1,0 +1,154 @@
+
+/* TWO-PERSON MEME FEATURE */
+
+.two-person-section {
+  margin-top: 30px;
+  padding: 22px;
+  border: 1px solid #454550;
+  border-radius: 18px;
+  background: #24242e;
+}
+
+.two-person-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.two-person-heading h3 {
+  margin: 0 0 6px;
+  font-size: 19px;
+  color: #ffffff;
+}
+
+.two-person-heading p {
+  margin: 0;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+.two-person-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  border: 1px solid #777;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+}
+
+.two-person-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: #b9ff66;
+  cursor: pointer;
+}
+
+.two-person-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.two-person-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.two-person-inputs input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #555;
+  border-radius: 11px;
+  background: #181820;
+  color: #ffffff;
+  font: inherit;
+}
+
+.two-person-inputs input:focus {
+  outline: 2px solid #b9ff66;
+  outline-offset: 2px;
+}
+
+.two-person-photo-preview {
+  margin-top: 22px;
+}
+
+.two-person-image-wrap {
+  position: relative;
+  width: min(100%, 430px);
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #17171c;
+}
+
+.two-person-image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.two-person-label {
+  position: absolute;
+  top: 12px;
+  max-width: 43%;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background: #c4ff70;
+  color: #151515;
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+  overflow-wrap: anywhere;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.two-person-label.left {
+  left: 12px;
+}
+
+.two-person-label.right {
+  right: 12px;
+}
+
+.two-person-photo-preview > p {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: #aaaaaa;
+}
+
+.two-person-example {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #34343e;
+  color: #c4ff70;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .two-person-section {
+    padding: 16px;
+  }
+
+  .two-person-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .two-person-heading {
+    align-items: flex-start;
+  }
+}

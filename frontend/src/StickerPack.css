@@ -1,0 +1,223 @@
+
+/* MEME-IT STICKER PACK */
+
+.sticker-pack-section {
+  margin-top: 36px;
+}
+
+.pack-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.pack-name-label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-width: 200px;
+  font-weight: 600;
+}
+
+.pack-name-label input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #555;
+  background: #202027;
+  color: white;
+  font: inherit;
+}
+
+.pack-name-label input:focus {
+  outline: 2px solid #b9ff66;
+  outline-offset: 2px;
+}
+
+.pack-counter {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #292934;
+  color: #b9ff66;
+  white-space: nowrap;
+}
+
+.pack-progress {
+  height: 10px;
+  background: #34343f;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 22px 0;
+}
+
+.pack-progress-fill {
+  height: 100%;
+  background: #b9ff66;
+  border-radius: inherit;
+  transition: width 0.25s ease;
+}
+
+.pack-empty {
+  padding: 36px 20px;
+  text-align: center;
+  color: #aaa;
+  background: #22222a;
+  border: 1px dashed #555;
+  border-radius: 16px;
+}
+
+.pack-gallery {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(160px, 1fr)
+  );
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.pack-item {
+  min-width: 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: #24242e;
+  border: 1px solid #454550;
+  text-align: center;
+}
+
+.pack-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: #33333d;
+  background-image: linear-gradient(
+      45deg,
+      #3d3d48 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      -45deg,
+      #3d3d48 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 75%,
+      #3d3d48 75%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 75%,
+      #3d3d48 75%
+    );
+  background-size: 16px 16px;
+}
+
+.pack-item p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ddd;
+  overflow-wrap: anywhere;
+  min-height: 36px;
+}
+
+.pack-item-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.pack-item-controls button {
+  cursor: pointer;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #383843;
+  color: white;
+  font: inherit;
+  font-size: 12px;
+}
+
+.pack-item-controls button:hover:not(:disabled) {
+  background: #50505d;
+}
+
+.pack-item-controls button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pack-item-controls .pack-remove {
+  color: #ff9999;
+}
+
+.pack-add-button {
+  display: block;
+  margin: 16px auto;
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: 2px solid #b9ff66;
+  background: transparent;
+  color: #b9ff66;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pack-add-button:hover:not(:disabled) {
+  background: #b9ff66;
+  color: #17171b;
+}
+
+.pack-add-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.pack-download-button {
+  display: block;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.pack-hint {
+  margin-top: 12px;
+  text-align: center;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.pack-message {
+  text-align: center;
+  color: #b9ff66;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .pack-header {
+    align-items: stretch;
+  }
+
+  .pack-counter {
+    text-align: center;
+  }
+
+  .pack-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .pack-item {
+    padding: 10px;
+  }
+}
